@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F67C8AB9-E6AC-4C59-AE2C-66537B85D563}") = "LiveSplit.ChapterSumofBest", "LiveSplit.ChapterSumofBest.csproj", "{F67C8AB9-E6AC-4C59-AE2C-66537B85D563}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release Candidate|Any CPU = Release Candidate|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F67C8AB9-E6AC-4C59-AE2C-66537B85D563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F67C8AB9-E6AC-4C59-AE2C-66537B85D563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F67C8AB9-E6AC-4C59-AE2C-66537B85D563}.Release Candidate|Any CPU.ActiveCfg = Release|Any CPU
+		{F67C8AB9-E6AC-4C59-AE2C-66537B85D563}.Release Candidate|Any CPU.Build.0 = Release|Any CPU
+		{F67C8AB9-E6AC-4C59-AE2C-66537B85D563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F67C8AB9-E6AC-4C59-AE2C-66537B85D563}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
