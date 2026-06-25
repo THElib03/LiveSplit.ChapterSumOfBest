@@ -1,4 +1,5 @@
-﻿using LiveSplit.UI;
+﻿using LiveSplit.TimeFormatters;
+using LiveSplit.UI;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -24,19 +25,18 @@ namespace LiveSplit.Components
 
         public enum SumofBestMode
         {
+            CurrentMethod,
             RealTimeAttack,
             InGameTime
         }
         public SumofBestMode TimingMode { get; set; }
+        public TimeAccuracy Accuracy { get; set; }
 
-        public enum SumofBestAccuracy
+        public GeneralTimeFormatter ChapterSumOfBestTimerFormater { get; set; } = new GeneralTimeFormatter()
         {
-            ZeroDecimal,
-            OneDecimal,
-            TwoDecimal
-        }
-        public SumofBestAccuracy Accuracy { get; set; }
-        public bool ShowTrailingZeroes { get; set; }
+            NullFormat = NullFormat.Dash,
+            Accuracy = TimeAccuracy.Tenths
+        };
         
         public bool Display2Rows { get; set; }
 
@@ -53,31 +53,28 @@ namespace LiveSplit.Components
             BackgroundColor = Color.Transparent;
             BackgroundColor2 = Color.Transparent;
             BackgroundGradient = GradientType.Plain;
-            TimingMode = SumofBestMode.InGameTime;
-            Accuracy = SumofBestAccuracy.ZeroDecimal;
+            TimingMode = SumofBestMode.CurrentMethod;
+            Accuracy = TimeAccuracy.Tenths;
             Display2Rows = false;
 
             chkOverrideTextColor.DataBindings.Add("Checked", this, "OverrideTextColor", false, DataSourceUpdateMode.OnPropertyChanged);
             btnTextColor.DataBindings.Add("BackColor", this, "TextColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            chkOverrideResetColor.DataBindings.Add("Checked", this, "OverrideSoBColor", false, DataSourceUpdateMode.OnPropertyChanged);
-            btnResetColor.DataBindings.Add("BackColor", this, "SoBColor", false, DataSourceUpdateMode.OnPropertyChanged);
             btnColor1.DataBindings.Add("BackColor", this, "BackgroundColor", false, DataSourceUpdateMode.OnPropertyChanged);
             btnColor2.DataBindings.Add("BackColor", this, "BackgroundColor2", false, DataSourceUpdateMode.OnPropertyChanged);
             cmbGradientType.DataBindings.Add("SelectedItem", this, "GradientString", false, DataSourceUpdateMode.OnPropertyChanged);
-            chkTrailingZeroes.DataBindings.Add("Checked", this, "ShowTrailingZeroes", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void ChapterSumofBestSettings_Load(object sender, EventArgs e)
         {
             chkOverrideTextColor_CheckedChanged(null, null);
-            chkOverrideResetColor_CheckedChanged(null, null);
 
             rdoModeRealTimeAttack.Checked = TimingMode == SumofBestMode.RealTimeAttack;
             rdoModeInGameTime.Checked = TimingMode == SumofBestMode.InGameTime;
 
-            rdoDecimalZero.Checked = Accuracy == SumofBestAccuracy.ZeroDecimal;
-            rdoDecimalOne.Checked = Accuracy == SumofBestAccuracy.OneDecimal;
-            rdoDecimalTwo.Checked = Accuracy == SumofBestAccuracy.TwoDecimal;
+            rdoSeconds.Checked = Accuracy == TimeAccuracy.Seconds;
+            rdoTenths.Checked = Accuracy == TimeAccuracy.Tenths;
+            rdoHundredths.Checked = Accuracy == TimeAccuracy.Hundredths;
+            rdoMilliseconds.Checked = Accuracy == TimeAccuracy.Milliseconds;
 
             if (Mode == LayoutMode.Horizontal)
             {
@@ -104,8 +101,7 @@ namespace LiveSplit.Components
             BackgroundColor2 = SettingsHelper.ParseColor(element["BackgroundColor2"]);
             GradientString = SettingsHelper.ParseString(element["BackgroundGradient"]);
             TimingMode = SettingsHelper.ParseEnum<SumofBestMode>(element["TimingMode"]);
-            Accuracy = SettingsHelper.ParseEnum<SumofBestAccuracy>(element["Accuracy"]);
-            ShowTrailingZeroes = SettingsHelper.ParseBool(element["ShowTrailingZeroes"]);
+            //Accuracy = SettingsHelper.ParseEnum<TimeAccuracy>(element["Accuracy"]);
             Display2Rows = SettingsHelper.ParseBool(element["Display2Rows"], false);
         }
 
@@ -123,7 +119,7 @@ namespace LiveSplit.Components
 
         private int CreateSettingsNode(XmlDocument document, XmlElement parent)
         {
-            return SettingsHelper.CreateSetting(document, parent, "Version", "0.0.1") ^
+            return SettingsHelper.CreateSetting(document, parent, "Version", "0.1.0") ^
                 SettingsHelper.CreateSetting(document, parent, "TextColor", TextColor) ^
                 SettingsHelper.CreateSetting(document, parent, "OverrideTextColor", OverrideTextColor) ^
                 SettingsHelper.CreateSetting(document, parent, "SoBColor", SoBColor) ^
@@ -133,8 +129,12 @@ namespace LiveSplit.Components
                 SettingsHelper.CreateSetting(document, parent, "BackgroundGradient", BackgroundGradient) ^
                 SettingsHelper.CreateSetting(document, parent, "TimingMode", TimingMode) ^
                 SettingsHelper.CreateSetting(document, parent, "Accuracy", Accuracy) ^
-                SettingsHelper.CreateSetting(document, parent, "ShowTrailingZeroes", ShowTrailingZeroes) ^
                 SettingsHelper.CreateSetting(document, parent, "Display2Rows", Display2Rows);
+        }
+
+        private void rdoModeCurrentMethod_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateMode();
         }
 
         private void rdoModeRealTimeAttack_CheckedChanged(object sender, EventArgs e)
@@ -147,17 +147,22 @@ namespace LiveSplit.Components
             UpdateMode();
         }
 
-        private void rdoDecimalZero_CheckedChanged(object sender, EventArgs e)
+        private void rdoSeconds_CheckedChanged(object sender, EventArgs e)
         {
             UpdateAccuracy();
         }
 
-        private void rdoDecimalOne_CheckedChanged(object sender, EventArgs e)
+        private void rdoTenths_CheckedChanged(object sender, EventArgs e)
         {
             UpdateAccuracy();
         }
 
-        private void rdoDecimalTwo_CheckedChanged(object sender, EventArgs e)
+        private void rdoHundredths_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateAccuracy();
+        }
+
+        private void rdoMilliseconds_CheckedChanged(object sender, EventArgs e)
         {
             UpdateAccuracy();
         }
@@ -180,39 +185,23 @@ namespace LiveSplit.Components
             textColorLabel.Enabled = btnTextColor.Enabled = chkOverrideTextColor.Checked;
         }
 
-        private void chkOverrideResetColor_CheckedChanged(object sender, EventArgs e)
-        {
-            resetColorLabel.Enabled = btnResetColor.Enabled = chkOverrideResetColor.Checked;
-        }
-
         private void UpdateMode()
         {
-            if (rdoModeRealTimeAttack.Checked)
-                TimingMode = SumofBestMode.RealTimeAttack;
-            else if (rdoModeInGameTime.Checked)
-                TimingMode = SumofBestMode.InGameTime;
-            else
-                TimingMode = SumofBestMode.InGameTime;
+            TimingMode =
+                rdoModeCurrentMethod.Checked ? SumofBestMode.CurrentMethod :
+                rdoModeInGameTime.Checked ? SumofBestMode.InGameTime :
+                SumofBestMode.RealTimeAttack;
         }
-        /* rdoModeRealTimeAttack.Checked = TimingMode == SumofBestMode.RealTimeAttack;
-            rdoModeInGameTime.Checked = TimingMode == SumofBestMode.InGameTime;
-
-            rdoDecimalZero.Checked = Accuracy == SumofBestAccuracy.ZeroDecimal;
-            rdoDecimalOne.Checked = Accuracy == SumofBestAccuracy.OneDecimal;
-            rdoDecimalTwo.Checked = Accuracy */ 
 
         private void UpdateAccuracy()
         {
-            /* if (decimalsCheckbox.Checked)
-                Accuracy = SumofBestAccuracy.ZeroDecimal; */
-            if (rdoDecimalZero.Checked)
-                Accuracy = SumofBestAccuracy.ZeroDecimal;
-            else if (rdoDecimalOne.Checked)
-                Accuracy = SumofBestAccuracy.OneDecimal;
-            else if (rdoDecimalTwo.Checked)
-                Accuracy = SumofBestAccuracy.TwoDecimal;
-            else
-                Accuracy = SumofBestAccuracy.ZeroDecimal;
+            Accuracy =
+                rdoSeconds.Checked ? TimeAccuracy.Seconds :
+                rdoTenths.Checked ? TimeAccuracy.Tenths :
+                rdoHundredths.Checked ? TimeAccuracy.Hundredths :
+                TimeAccuracy.Milliseconds;
+
+            ChapterSumOfBestTimerFormater.Accuracy = Accuracy;
         }
     }
 }

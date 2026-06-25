@@ -37,37 +37,32 @@ namespace LiveSplit.Components
             this.btnTextColor = new System.Windows.Forms.Button();
             this.sobGroupBox = new System.Windows.Forms.GroupBox();
             this.sobTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.decimalGroupBox = new System.Windows.Forms.GroupBox();
-            this.decimalLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.rdoDecimalZero = new System.Windows.Forms.RadioButton();
-            this.rdoDecimalOne = new System.Windows.Forms.RadioButton();
-            this.rdoDecimalTwo = new System.Windows.Forms.RadioButton();
-            this.chkTrailingZeroes = new System.Windows.Forms.CheckBox();
-            this.resetClrGroupBox = new System.Windows.Forms.GroupBox();
-            this.resetClrLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.chkOverrideResetColor = new System.Windows.Forms.CheckBox();
-            this.resetColorLabel = new System.Windows.Forms.Label();
-            this.btnResetColor = new System.Windows.Forms.Button();
             this.timingModeGroupBox = new System.Windows.Forms.GroupBox();
             this.timingModeTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.rdoModeCurrentMethod = new System.Windows.Forms.RadioButton();
             this.rdoModeInGameTime = new System.Windows.Forms.RadioButton();
             this.rdoModeRealTimeAttack = new System.Windows.Forms.RadioButton();
+            this.decimalGroupBox = new System.Windows.Forms.GroupBox();
+            this.decimalLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.rdoSeconds = new System.Windows.Forms.RadioButton();
+            this.rdoTenths = new System.Windows.Forms.RadioButton();
+            this.rdoHundredths = new System.Windows.Forms.RadioButton();
+            this.rdoMilliseconds = new System.Windows.Forms.RadioButton();
             this.chkTwoRows = new System.Windows.Forms.CheckBox();
             this.bgColorLabel = new System.Windows.Forms.Label();
             this.btnColor1 = new System.Windows.Forms.Button();
             this.btnColor2 = new System.Windows.Forms.Button();
             this.cmbGradientType = new System.Windows.Forms.ComboBox();
+            this.resetClrLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.topLevelLayoutPanel.SuspendLayout();
             this.textGroupBox.SuspendLayout();
             this.textTableLayoutPanel.SuspendLayout();
             this.sobGroupBox.SuspendLayout();
             this.sobTableLayoutPanel.SuspendLayout();
-            this.decimalGroupBox.SuspendLayout();
-            this.decimalLayoutPanel.SuspendLayout();
-            this.resetClrGroupBox.SuspendLayout();
-            this.resetClrLayoutPanel.SuspendLayout();
             this.timingModeGroupBox.SuspendLayout();
             this.timingModeTableLayout.SuspendLayout();
+            this.decimalGroupBox.SuspendLayout();
+            this.decimalLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLevelLayoutPanel
@@ -87,7 +82,7 @@ namespace LiveSplit.Components
             this.topLevelLayoutPanel.Controls.Add(this.cmbGradientType, 3, 0);
             this.topLevelLayoutPanel.Location = new System.Drawing.Point(7, 7);
             this.topLevelLayoutPanel.Name = "topLevelLayoutPanel";
-            this.topLevelLayoutPanel.RowCount = 4;
+            this.topLevelLayoutPanel.RowCount = 3;
             this.topLevelLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.topLevelLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.topLevelLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
@@ -103,7 +98,7 @@ namespace LiveSplit.Components
             this.textGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textGroupBox.Location = new System.Drawing.Point(3, 61);
             this.textGroupBox.Name = "textGroupBox";
-            this.textGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.textGroupBox.Size = new System.Drawing.Size(457, 77);
             this.textGroupBox.TabIndex = 2;
             this.textGroupBox.TabStop = false;
@@ -120,7 +115,7 @@ namespace LiveSplit.Components
             this.textTableLayoutPanel.Controls.Add(this.btnTextColor, 1, 1);
             this.textTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textTableLayoutPanel.Location = new System.Drawing.Point(2, 15);
-            this.textTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.textTableLayoutPanel.MinimumSize = new System.Drawing.Size(0, 65);
             this.textTableLayoutPanel.Name = "textTableLayoutPanel";
             this.textTableLayoutPanel.RowCount = 2;
@@ -172,228 +167,84 @@ namespace LiveSplit.Components
             this.sobGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sobGroupBox.Location = new System.Drawing.Point(3, 144);
             this.sobGroupBox.Name = "sobGroupBox";
-            this.sobGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sobGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.sobGroupBox.Size = new System.Drawing.Size(457, 359);
-            this.sobGroupBox.TabIndex = 3;
+            this.sobGroupBox.TabIndex = 2;
             this.sobGroupBox.TabStop = false;
-            this.sobGroupBox.Text = "Reset Chance";
+            this.sobGroupBox.Text = "Timer";
             // 
             // sobTableLayoutPanel
             // 
             this.sobTableLayoutPanel.ColumnCount = 1;
             this.sobTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.sobTableLayoutPanel.Controls.Add(this.decimalGroupBox, 0, 2);
-            this.sobTableLayoutPanel.Controls.Add(this.resetClrGroupBox, 0, 1);
             this.sobTableLayoutPanel.Controls.Add(this.timingModeGroupBox, 0, 0);
+            this.sobTableLayoutPanel.Controls.Add(this.decimalGroupBox, 0, 1);
             this.sobTableLayoutPanel.Location = new System.Drawing.Point(2, 14);
-            this.sobTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sobTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.sobTableLayoutPanel.Name = "sobTableLayoutPanel";
-            this.sobTableLayoutPanel.RowCount = 4;
+            this.sobTableLayoutPanel.RowCount = 2;
             this.sobTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.sobTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 83F));
-            this.sobTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
-            this.sobTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.sobTableLayoutPanel.Size = new System.Drawing.Size(453, 242);
+            this.sobTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+            this.sobTableLayoutPanel.Size = new System.Drawing.Size(453, 166);
             this.sobTableLayoutPanel.TabIndex = 0;
-            // 
-            // decimalGroupBox
-            // 
-            this.decimalGroupBox.AutoSize = true;
-            this.decimalGroupBox.Controls.Add(this.decimalLayoutPanel);
-            this.decimalGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.decimalGroupBox.Location = new System.Drawing.Point(3, 140);
-            this.decimalGroupBox.MinimumSize = new System.Drawing.Size(0, 98);
-            this.decimalGroupBox.Name = "decimalGroupBox";
-            this.decimalGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.decimalGroupBox.Size = new System.Drawing.Size(447, 98);
-            this.decimalGroupBox.TabIndex = 1;
-            this.decimalGroupBox.TabStop = false;
-            this.decimalGroupBox.Text = "Decimal Points";
-            // 
-            // decimalLayoutPanel
-            // 
-            this.decimalLayoutPanel.AutoSize = true;
-            this.decimalLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.decimalLayoutPanel.ColumnCount = 3;
-            this.decimalLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.decimalLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.decimalLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.decimalLayoutPanel.Controls.Add(this.rdoDecimalZero, 0, 0);
-            this.decimalLayoutPanel.Controls.Add(this.rdoDecimalOne, 1, 0);
-            this.decimalLayoutPanel.Controls.Add(this.rdoDecimalTwo, 2, 0);
-            this.decimalLayoutPanel.Controls.Add(this.chkTrailingZeroes, 0, 1);
-            this.decimalLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.decimalLayoutPanel.Location = new System.Drawing.Point(2, 15);
-            this.decimalLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.decimalLayoutPanel.Name = "decimalLayoutPanel";
-            this.decimalLayoutPanel.RowCount = 2;
-            this.decimalLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.decimalLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.decimalLayoutPanel.Size = new System.Drawing.Size(443, 81);
-            this.decimalLayoutPanel.TabIndex = 0;
-            // 
-            // rdoDecimalZero
-            // 
-            this.rdoDecimalZero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdoDecimalZero.AutoSize = true;
-            this.rdoDecimalZero.Location = new System.Drawing.Point(3, 11);
-            this.rdoDecimalZero.MinimumSize = new System.Drawing.Size(100, 0);
-            this.rdoDecimalZero.Name = "rdoDecimalZero";
-            this.rdoDecimalZero.Size = new System.Drawing.Size(141, 17);
-            this.rdoDecimalZero.TabIndex = 0;
-            this.rdoDecimalZero.TabStop = true;
-            this.rdoDecimalZero.Text = "Zero (1%)";
-            this.rdoDecimalZero.UseVisualStyleBackColor = true;
-            this.rdoDecimalZero.CheckedChanged += new System.EventHandler(this.rdoDecimalZero_CheckedChanged);
-            // 
-            // rdoDecimalOne
-            // 
-            this.rdoDecimalOne.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdoDecimalOne.AutoSize = true;
-            this.rdoDecimalOne.Location = new System.Drawing.Point(150, 11);
-            this.rdoDecimalOne.MinimumSize = new System.Drawing.Size(100, 0);
-            this.rdoDecimalOne.Name = "rdoDecimalOne";
-            this.rdoDecimalOne.Size = new System.Drawing.Size(141, 17);
-            this.rdoDecimalOne.TabIndex = 1;
-            this.rdoDecimalOne.TabStop = true;
-            this.rdoDecimalOne.Text = "One (1.1%)";
-            this.rdoDecimalOne.UseVisualStyleBackColor = true;
-            this.rdoDecimalOne.CheckedChanged += new System.EventHandler(this.rdoDecimalOne_CheckedChanged);
-            // 
-            // rdoDecimalTwo
-            // 
-            this.rdoDecimalTwo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdoDecimalTwo.AutoSize = true;
-            this.rdoDecimalTwo.Location = new System.Drawing.Point(297, 11);
-            this.rdoDecimalTwo.MinimumSize = new System.Drawing.Size(100, 0);
-            this.rdoDecimalTwo.Name = "rdoDecimalTwo";
-            this.rdoDecimalTwo.Size = new System.Drawing.Size(143, 17);
-            this.rdoDecimalTwo.TabIndex = 2;
-            this.rdoDecimalTwo.TabStop = true;
-            this.rdoDecimalTwo.Text = "Two (1.11%)";
-            this.rdoDecimalTwo.UseVisualStyleBackColor = true;
-            this.rdoDecimalTwo.CheckedChanged += new System.EventHandler(this.rdoDecimalTwo_CheckedChanged);
-            // 
-            // chkTrailingZeroes
-            // 
-            this.chkTrailingZeroes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkTrailingZeroes.AutoSize = true;
-            this.chkTrailingZeroes.Location = new System.Drawing.Point(7, 52);
-            this.chkTrailingZeroes.Margin = new System.Windows.Forms.Padding(7, 3, 3, 3);
-            this.chkTrailingZeroes.Name = "chkTrailingZeroes";
-            this.chkTrailingZeroes.Size = new System.Drawing.Size(137, 17);
-            this.chkTrailingZeroes.TabIndex = 3;
-            this.chkTrailingZeroes.Text = "Show Trailing Zeroes";
-            this.chkTrailingZeroes.UseVisualStyleBackColor = true;
-            // 
-            // resetClrGroupBox
-            // 
-            this.resetClrGroupBox.Controls.Add(this.resetClrLayoutPanel);
-            this.resetClrGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.resetClrGroupBox.Location = new System.Drawing.Point(3, 57);
-            this.resetClrGroupBox.Name = "resetClrGroupBox";
-            this.resetClrGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.resetClrGroupBox.Size = new System.Drawing.Size(447, 77);
-            this.resetClrGroupBox.TabIndex = 2;
-            this.resetClrGroupBox.TabStop = false;
-            this.resetClrGroupBox.Text = "Color";
-            // 
-            // resetClrLayoutPanel
-            // 
-            this.resetClrLayoutPanel.ColumnCount = 2;
-            this.resetClrLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.resetClrLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.resetClrLayoutPanel.Controls.Add(this.chkOverrideResetColor, 0, 0);
-            this.resetClrLayoutPanel.Controls.Add(this.resetColorLabel, 0, 1);
-            this.resetClrLayoutPanel.Controls.Add(this.btnResetColor, 1, 1);
-            this.resetClrLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.resetClrLayoutPanel.Location = new System.Drawing.Point(2, 15);
-            this.resetClrLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.resetClrLayoutPanel.Name = "resetClrLayoutPanel";
-            this.resetClrLayoutPanel.RowCount = 2;
-            this.resetClrLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.resetClrLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.resetClrLayoutPanel.Size = new System.Drawing.Size(443, 60);
-            this.resetClrLayoutPanel.TabIndex = 0;
-            // 
-            // chkOverrideResetColor
-            // 
-            this.chkOverrideResetColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkOverrideResetColor.AutoSize = true;
-            this.chkOverrideResetColor.Location = new System.Drawing.Point(7, 6);
-            this.chkOverrideResetColor.Margin = new System.Windows.Forms.Padding(7, 3, 3, 3);
-            this.chkOverrideResetColor.Name = "chkOverrideResetColor";
-            this.chkOverrideResetColor.Size = new System.Drawing.Size(139, 17);
-            this.chkOverrideResetColor.TabIndex = 0;
-            this.chkOverrideResetColor.Text = "Override Layout Settings";
-            this.chkOverrideResetColor.UseVisualStyleBackColor = true;
-            this.chkOverrideResetColor.CheckedChanged += new System.EventHandler(this.chkOverrideResetColor_CheckedChanged);
-            // 
-            // resetColorLabel
-            // 
-            this.resetColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.resetColorLabel.AutoSize = true;
-            this.resetColorLabel.Location = new System.Drawing.Point(2, 38);
-            this.resetColorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.resetColorLabel.Name = "resetColorLabel";
-            this.resetColorLabel.Size = new System.Drawing.Size(145, 13);
-            this.resetColorLabel.TabIndex = 1;
-            this.resetColorLabel.Text = "Color:";
-            // 
-            // btnResetColor
-            // 
-            this.btnResetColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnResetColor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnResetColor.Location = new System.Drawing.Point(152, 33);
-            this.btnResetColor.Name = "btnResetColor";
-            this.btnResetColor.Size = new System.Drawing.Size(24, 24);
-            this.btnResetColor.TabIndex = 2;
-            this.btnResetColor.UseVisualStyleBackColor = true;
-            this.btnResetColor.Click += new System.EventHandler(this.ColorButtonClicked);
             // 
             // timingModeGroupBox
             // 
             this.timingModeGroupBox.Controls.Add(this.timingModeTableLayout);
             this.timingModeGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timingModeGroupBox.Location = new System.Drawing.Point(2, 2);
-            this.timingModeGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.timingModeGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.timingModeGroupBox.Name = "timingModeGroupBox";
-            this.timingModeGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.timingModeGroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.timingModeGroupBox.Size = new System.Drawing.Size(449, 50);
             this.timingModeGroupBox.TabIndex = 4;
             this.timingModeGroupBox.TabStop = false;
-            this.timingModeGroupBox.Text = "Mode";
+            this.timingModeGroupBox.Text = "Timing Mode";
             // 
             // timingModeTableLayout
             // 
             this.timingModeTableLayout.ColumnCount = 3;
-            this.timingModeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.timingModeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.timingModeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.timingModeTableLayout.Controls.Add(this.rdoModeInGameTime, 0, 0);
-            this.timingModeTableLayout.Controls.Add(this.rdoModeRealTimeAttack, 1, 0);
+            this.timingModeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.timingModeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.timingModeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.timingModeTableLayout.Controls.Add(this.rdoModeCurrentMethod, 0, 0);
+            this.timingModeTableLayout.Controls.Add(this.rdoModeInGameTime, 1, 0);
+            this.timingModeTableLayout.Controls.Add(this.rdoModeRealTimeAttack, 2, 0);
             this.timingModeTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timingModeTableLayout.Location = new System.Drawing.Point(2, 15);
-            this.timingModeTableLayout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.timingModeTableLayout.Margin = new System.Windows.Forms.Padding(2);
             this.timingModeTableLayout.Name = "timingModeTableLayout";
-            this.timingModeTableLayout.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.timingModeTableLayout.Padding = new System.Windows.Forms.Padding(2);
             this.timingModeTableLayout.RowCount = 1;
             this.timingModeTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.timingModeTableLayout.Size = new System.Drawing.Size(445, 33);
             this.timingModeTableLayout.TabIndex = 0;
             // 
+            // rdoModeCurrentMethod
+            // 
+            this.rdoModeCurrentMethod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoModeCurrentMethod.AutoSize = true;
+            this.rdoModeCurrentMethod.Location = new System.Drawing.Point(4, 8);
+            this.rdoModeCurrentMethod.Margin = new System.Windows.Forms.Padding(2);
+            this.rdoModeCurrentMethod.Name = "rdoModeCurrentMethod";
+            this.rdoModeCurrentMethod.Size = new System.Drawing.Size(141, 17);
+            this.rdoModeCurrentMethod.TabIndex = 0;
+            this.rdoModeCurrentMethod.TabStop = true;
+            this.rdoModeCurrentMethod.Text = "Current Timing Method";
+            this.rdoModeCurrentMethod.UseVisualStyleBackColor = true;
+            this.rdoModeCurrentMethod.CheckedChanged += new System.EventHandler(this.rdoModeCurrentMethod_CheckedChanged);
+            // 
             // rdoModeInGameTime
             // 
             this.rdoModeInGameTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdoModeInGameTime.AutoSize = true;
-            this.rdoModeInGameTime.Location = new System.Drawing.Point(4, 8);
-            this.rdoModeInGameTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoModeInGameTime.Location = new System.Drawing.Point(149, 8);
+            this.rdoModeInGameTime.Margin = new System.Windows.Forms.Padding(2);
             this.rdoModeInGameTime.Name = "rdoModeInGameTime";
-            this.rdoModeInGameTime.Size = new System.Drawing.Size(206, 17);
-            this.rdoModeInGameTime.TabIndex = 0;
+            this.rdoModeInGameTime.Size = new System.Drawing.Size(141, 17);
+            this.rdoModeInGameTime.TabIndex = 1;
             this.rdoModeInGameTime.TabStop = true;
-            this.rdoModeInGameTime.Text = "Reset Chance";
+            this.rdoModeInGameTime.Text = "Game Time";
             this.rdoModeInGameTime.UseVisualStyleBackColor = true;
             this.rdoModeInGameTime.CheckedChanged += new System.EventHandler(this.rdoModeInGameTime_CheckedChanged);
             // 
@@ -401,15 +252,107 @@ namespace LiveSplit.Components
             // 
             this.rdoModeRealTimeAttack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rdoModeRealTimeAttack.AutoSize = true;
-            this.rdoModeRealTimeAttack.Location = new System.Drawing.Point(214, 8);
-            this.rdoModeRealTimeAttack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoModeRealTimeAttack.Location = new System.Drawing.Point(294, 8);
+            this.rdoModeRealTimeAttack.Margin = new System.Windows.Forms.Padding(2);
             this.rdoModeRealTimeAttack.Name = "rdoModeRealTimeAttack";
-            this.rdoModeRealTimeAttack.Size = new System.Drawing.Size(206, 17);
-            this.rdoModeRealTimeAttack.TabIndex = 1;
+            this.rdoModeRealTimeAttack.Size = new System.Drawing.Size(147, 17);
+            this.rdoModeRealTimeAttack.TabIndex = 2;
             this.rdoModeRealTimeAttack.TabStop = true;
-            this.rdoModeRealTimeAttack.Text = "Success Chance";
+            this.rdoModeRealTimeAttack.Text = "Real Time";
             this.rdoModeRealTimeAttack.UseVisualStyleBackColor = true;
             this.rdoModeRealTimeAttack.CheckedChanged += new System.EventHandler(this.rdoModeRealTimeAttack_CheckedChanged);
+            // 
+            // decimalGroupBox
+            // 
+            this.decimalGroupBox.AutoSize = true;
+            this.decimalGroupBox.Controls.Add(this.decimalLayoutPanel);
+            this.decimalGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.decimalGroupBox.Location = new System.Drawing.Point(3, 57);
+            this.decimalGroupBox.MinimumSize = new System.Drawing.Size(0, 98);
+            this.decimalGroupBox.Name = "decimalGroupBox";
+            this.decimalGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.decimalGroupBox.Size = new System.Drawing.Size(447, 98);
+            this.decimalGroupBox.TabIndex = 1;
+            this.decimalGroupBox.TabStop = false;
+            this.decimalGroupBox.Text = "Accuracy";
+            // 
+            // decimalLayoutPanel
+            // 
+            this.decimalLayoutPanel.AutoSize = true;
+            this.decimalLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.decimalLayoutPanel.ColumnCount = 4;
+            this.decimalLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.decimalLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.decimalLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.decimalLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.decimalLayoutPanel.Controls.Add(this.rdoSeconds, 0, 0);
+            this.decimalLayoutPanel.Controls.Add(this.rdoTenths, 1, 0);
+            this.decimalLayoutPanel.Controls.Add(this.rdoHundredths, 2, 0);
+            this.decimalLayoutPanel.Controls.Add(this.rdoMilliseconds, 3, 0);
+            this.decimalLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decimalLayoutPanel.Location = new System.Drawing.Point(2, 15);
+            this.decimalLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.decimalLayoutPanel.Name = "decimalLayoutPanel";
+            this.decimalLayoutPanel.RowCount = 1;
+            this.decimalLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.decimalLayoutPanel.Size = new System.Drawing.Size(443, 81);
+            this.decimalLayoutPanel.TabIndex = 0;
+            // 
+            // rdoSeconds
+            // 
+            this.rdoSeconds.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoSeconds.AutoSize = true;
+            this.rdoSeconds.Location = new System.Drawing.Point(3, 32);
+            this.rdoSeconds.MinimumSize = new System.Drawing.Size(100, 0);
+            this.rdoSeconds.Name = "rdoSeconds";
+            this.rdoSeconds.Size = new System.Drawing.Size(104, 17);
+            this.rdoSeconds.TabIndex = 0;
+            this.rdoSeconds.TabStop = true;
+            this.rdoSeconds.Text = "Seconds";
+            this.rdoSeconds.UseVisualStyleBackColor = true;
+            this.rdoSeconds.CheckedChanged += new System.EventHandler(this.rdoSeconds_CheckedChanged);
+            // 
+            // rdoTenths
+            // 
+            this.rdoTenths.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoTenths.AutoSize = true;
+            this.rdoTenths.Location = new System.Drawing.Point(113, 32);
+            this.rdoTenths.MinimumSize = new System.Drawing.Size(100, 0);
+            this.rdoTenths.Name = "rdoTenths";
+            this.rdoTenths.Size = new System.Drawing.Size(104, 17);
+            this.rdoTenths.TabIndex = 1;
+            this.rdoTenths.TabStop = true;
+            this.rdoTenths.Text = "Tenths";
+            this.rdoTenths.UseVisualStyleBackColor = true;
+            this.rdoTenths.CheckedChanged += new System.EventHandler(this.rdoTenths_CheckedChanged);
+            // 
+            // rdoHundredths
+            // 
+            this.rdoHundredths.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoHundredths.AutoSize = true;
+            this.rdoHundredths.Location = new System.Drawing.Point(223, 32);
+            this.rdoHundredths.MinimumSize = new System.Drawing.Size(100, 0);
+            this.rdoHundredths.Name = "rdoHundredths";
+            this.rdoHundredths.Size = new System.Drawing.Size(104, 17);
+            this.rdoHundredths.TabIndex = 2;
+            this.rdoHundredths.TabStop = true;
+            this.rdoHundredths.Text = "Hundredths";
+            this.rdoHundredths.UseVisualStyleBackColor = true;
+            this.rdoHundredths.CheckedChanged += new System.EventHandler(this.rdoHundredths_CheckedChanged);
+            // 
+            // rdoMilliseconds
+            // 
+            this.rdoMilliseconds.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoMilliseconds.AutoSize = true;
+            this.rdoMilliseconds.Location = new System.Drawing.Point(333, 32);
+            this.rdoMilliseconds.MinimumSize = new System.Drawing.Size(100, 0);
+            this.rdoMilliseconds.Name = "rdoMilliseconds";
+            this.rdoMilliseconds.Size = new System.Drawing.Size(107, 17);
+            this.rdoMilliseconds.TabIndex = 3;
+            this.rdoMilliseconds.TabStop = true;
+            this.rdoMilliseconds.Text = "Milliseconds";
+            this.rdoMilliseconds.UseVisualStyleBackColor = true;
+            this.rdoMilliseconds.CheckedChanged += new System.EventHandler(this.rdoMilliseconds_CheckedChanged);
             // 
             // chkTwoRows
             // 
@@ -474,6 +417,13 @@ namespace LiveSplit.Components
             this.cmbGradientType.TabIndex = 7;
             this.cmbGradientType.SelectedIndexChanged += new System.EventHandler(this.cmbGradientType_SelectedIndexChanged);
             // 
+            // resetClrLayoutPanel
+            // 
+            this.resetClrLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.resetClrLayoutPanel.Name = "resetClrLayoutPanel";
+            this.resetClrLayoutPanel.Size = new System.Drawing.Size(200, 100);
+            this.resetClrLayoutPanel.TabIndex = 0;
+            // 
             // ChapterSumofBestSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -481,8 +431,8 @@ namespace LiveSplit.Components
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.topLevelLayoutPanel);
             this.Name = "ChapterSumofBestSettings";
-            this.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
-            this.Size = new System.Drawing.Size(476, 513);
+            this.Padding = new System.Windows.Forms.Padding(7);
+            this.Size = new System.Drawing.Size(476, 413);
             this.Load += new System.EventHandler(this.ChapterSumofBestSettings_Load);
             this.topLevelLayoutPanel.ResumeLayout(false);
             this.topLevelLayoutPanel.PerformLayout();
@@ -492,16 +442,13 @@ namespace LiveSplit.Components
             this.sobGroupBox.ResumeLayout(false);
             this.sobTableLayoutPanel.ResumeLayout(false);
             this.sobTableLayoutPanel.PerformLayout();
+            this.timingModeGroupBox.ResumeLayout(false);
+            this.timingModeTableLayout.ResumeLayout(false);
+            this.timingModeTableLayout.PerformLayout();
             this.decimalGroupBox.ResumeLayout(false);
             this.decimalGroupBox.PerformLayout();
             this.decimalLayoutPanel.ResumeLayout(false);
             this.decimalLayoutPanel.PerformLayout();
-            this.resetClrGroupBox.ResumeLayout(false);
-            this.resetClrLayoutPanel.ResumeLayout(false);
-            this.resetClrLayoutPanel.PerformLayout();
-            this.timingModeGroupBox.ResumeLayout(false);
-            this.timingModeTableLayout.ResumeLayout(false);
-            this.timingModeTableLayout.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -512,9 +459,10 @@ namespace LiveSplit.Components
         private System.Windows.Forms.CheckBox chkTwoRows;
         private System.Windows.Forms.GroupBox decimalGroupBox;
         private System.Windows.Forms.TableLayoutPanel decimalLayoutPanel;
-        private System.Windows.Forms.RadioButton rdoDecimalZero;
-        private System.Windows.Forms.RadioButton rdoDecimalOne;
-        private System.Windows.Forms.RadioButton rdoDecimalTwo;
+        private System.Windows.Forms.RadioButton rdoSeconds;
+        private System.Windows.Forms.RadioButton rdoTenths;
+        private System.Windows.Forms.RadioButton rdoHundredths;
+        private System.Windows.Forms.RadioButton rdoMilliseconds;
         private System.Windows.Forms.GroupBox textGroupBox;
         private System.Windows.Forms.TableLayoutPanel textTableLayoutPanel;
         private System.Windows.Forms.GroupBox sobGroupBox;
@@ -524,16 +472,12 @@ namespace LiveSplit.Components
         private System.Windows.Forms.Button btnColor2;
         private System.Windows.Forms.ComboBox cmbGradientType;
         private System.Windows.Forms.CheckBox chkOverrideTextColor;
-        private System.Windows.Forms.CheckBox chkTrailingZeroes;
-        private System.Windows.Forms.GroupBox resetClrGroupBox;
         private System.Windows.Forms.TableLayoutPanel resetClrLayoutPanel;
         private System.Windows.Forms.Label textColorLabel;
         private System.Windows.Forms.Button btnTextColor;
-        private System.Windows.Forms.CheckBox chkOverrideResetColor;
-        private System.Windows.Forms.Label resetColorLabel;
-        private System.Windows.Forms.Button btnResetColor;
         private System.Windows.Forms.GroupBox timingModeGroupBox;
         private System.Windows.Forms.TableLayoutPanel timingModeTableLayout;
+        private System.Windows.Forms.RadioButton rdoModeCurrentMethod;
         private System.Windows.Forms.RadioButton rdoModeInGameTime;
         private System.Windows.Forms.RadioButton rdoModeRealTimeAttack;
     }

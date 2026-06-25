@@ -234,6 +234,8 @@ namespace LiveSplit.Components
                 = InternalComponent.ValueLabel.HasShadow
                 = state.LayoutSettings.DropShadows;
 
+            Formatter.Accuracy = Settings.Accuracy;
+
             InternalComponent.NameLabel.ForeColor = Settings.OverrideTextColor ? Settings.TextColor : state.LayoutSettings.TextColor;
             InternalComponent.ValueLabel.ForeColor = Settings.OverrideSoBColor ? Settings.SoBColor : state.LayoutSettings.TextColor;
 
@@ -249,6 +251,8 @@ namespace LiveSplit.Components
             InternalComponent.NameLabel.HasShadow
                 = InternalComponent.ValueLabel.HasShadow
                 = state.LayoutSettings.DropShadows;
+
+            Formatter.Accuracy = Settings.Accuracy;
 
             InternalComponent.NameLabel.ForeColor = Settings.OverrideTextColor ? Settings.TextColor : state.LayoutSettings.TextColor;
             InternalComponent.ValueLabel.ForeColor = Settings.OverrideSoBColor ? Settings.SoBColor : state.LayoutSettings.TextColor;
