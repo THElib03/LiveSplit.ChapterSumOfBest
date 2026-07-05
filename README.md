@@ -43,6 +43,6 @@ Any bug or issue found can be posted on the issues page or sent to my personal e
 ### Thanks
 -----
 
- * (JeepyGMI)[https://www.youtube.com/@JeepyGmi] for the idea of this addon.
- * TheSoundDefense for the repository (ResetChance)[https://github.com/TheSoundDefense/LiveSplit.ResetChance] as the base for learning how to code for LiveSplit and not having to vibe code this repo from the very beggining.
- * (LiveSplit)[https://github.com/LiveSplit] and it's team in general for making such a great tool for sppedrunners.
+ * [JeepyGMI](https://www.youtube.com/@JeepyGmi) for the idea of this addon.
+ * TheSoundDefense for the repository [ResetChance](https://github.com/TheSoundDefense/LiveSplit.ResetChance) as the base for learning how to code for LiveSplit and not having to vibe code this repo from the very beggining.
+ * [LiveSplit](https://github.com/LiveSplit) and it's team in general for making such a great tool for sppedrunners.
